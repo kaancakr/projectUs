@@ -25,7 +25,7 @@ export default function RootLayout() {
         }}
       />
       <Stack.Screen
-        name="dashboard"
+        name="(auth)"
         options={{
           title: "",
           headerShown: false

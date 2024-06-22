@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import MapComponent from "../components/MapComponent";
+import MapComponent from "../../../../components/MapComponent";
 
 const Dashboard: React.FC = () => {
   return (

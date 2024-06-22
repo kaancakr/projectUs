@@ -29,7 +29,7 @@ const Login = () => {
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user: any) => {
       if (user) {
-        router.replace("/dashboard"); // Navigate to the main app screen
+        router.replace("/(auth)/(drawer)/(map)/dashboard");
       }
     });
     return () => {
@@ -42,7 +42,11 @@ const Login = () => {
       try {
         const storedLoginInfo = await AsyncStorage.getItem("lastLoginInfo");
         if (storedLoginInfo) {
-          const { emailAddress, password, rememberMe: storedRememberMe } = JSON.parse(storedLoginInfo);
+          const {
+            emailAddress,
+            password,
+            rememberMe: storedRememberMe,
+          } = JSON.parse(storedLoginInfo);
           setEmailAddress(emailAddress);
           setPassword(password);
           setRememberMe(storedRememberMe);
@@ -63,7 +67,7 @@ const Login = () => {
       } else {
         await AsyncStorage.removeItem("lastLoginInfo");
       }
-      router.replace("/dashboard"); // Navigate to the main app screen
+      router.replace("/(auth)/(drawer)/(map)/dashboard");
     } catch (error: any) {
       Alert.alert("Login Error", error.message);
     } finally {
@@ -74,7 +78,9 @@ const Login = () => {
   const createUser = async () => {
     setLoading(true);
     try {
-      await firebase.auth().createUserWithEmailAndPassword(emailAddress, password);
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(emailAddress, password);
       if (rememberMe) {
         saveLoginInfo();
       } else {
@@ -90,7 +96,10 @@ const Login = () => {
 
   const saveLoginInfo = async () => {
     try {
-      await AsyncStorage.setItem("lastLoginInfo", JSON.stringify({ emailAddress, password, rememberMe }));
+      await AsyncStorage.setItem(
+        "lastLoginInfo",
+        JSON.stringify({ emailAddress, password, rememberMe })
+      );
     } catch (error) {
       console.error("Error saving login information to AsyncStorage:", error);
     }
