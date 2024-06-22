@@ -47,8 +47,8 @@ const AnimatedCard: React.FC = () => {
 
 const renderItem: ListRenderItem<{ id: string; description: string; amount: string }> = ({ item }) => (
   <View style={styles.transactionItem}>
-    <Text>{item.description}</Text>
-    <Text>{item.amount}</Text>
+    <Text style={{color: '#fff', fontSize: 16}}>{item.description}</Text>
+    <Text style={{color: '#fff', fontSize: 14}}>{item.amount}</Text>
   </View>
 );
 
@@ -69,7 +69,7 @@ const Page: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
   },
   card: {
     height: 200,

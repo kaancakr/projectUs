@@ -37,10 +37,10 @@ const CustomDrawerContent = (props: any) => {
   
     return (
       <View style={{ flex: 1, marginTop: top }}>
-        <View style={{ backgroundColor: '#fff', paddingBottom: 16 }}>
+        <View style={{ backgroundColor: '#000', paddingBottom: 16 }}>
           <View style={styles.searchSection}>
             <Ionicons style={styles.searchIcon} name="search" size={20} color="#ccc" />
-            <TextInput style={styles.input} placeholder="Search" underlineColorAndroid="transparent" />
+            <TextInput style={styles.input} placeholder="Search" underlineColorAndroid="transparent" placeholderTextColor={'#000'}/>
           </View>
         </View>
         <DrawerContentScrollView {...props} contentContainerStyle={{ paddingTop: 0 }}>
@@ -78,21 +78,26 @@ const Layout = () => {
               marginLeft: 16,
             }}
           >
-            <FontAwesome6 name="grip-lines" size={20} color={Colors.grey} />
+            <FontAwesome6 name="grip-lines" size={20} color={'#fff'} />
           </TouchableOpacity>
         ),
         headerStyle: {
-          backgroundColor: Colors.light,
-          height: 120,
+          backgroundColor: '#000',
+          height: 130,
         },
         headerShadowVisible: false,
         drawerActiveBackgroundColor: Colors.selected,
         drawerActiveTintColor: "#000",
-        drawerInactiveTintColor: "#000",
+        drawerInactiveTintColor: "#fff",
         overlayColor: "rgba(0, 0, 0, 0.2)",
         drawerItemStyle: { borderRadius: 12 },
-        drawerStyle: { width: dimensions.width * 0.86 },
-        drawerLabelStyle: { marginLeft: -20 },
+        drawerStyle: { width: dimensions.width * 0.86, backgroundColor: '#000' },
+        drawerLabelStyle: { marginLeft: -20, fontSize: 16 },
+        headerTitleStyle: {
+          color: "#fff",
+          fontSize: 20,
+          fontWeight: "bold",
+        },
       }}
     >
       <Drawer.Screen
@@ -189,7 +194,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 12,
     backgroundColor: Colors.input,
-    height: 34,
+    height: 40,
+    marginTop: 10
   },
   searchIcon: {
     padding: 6,
@@ -224,6 +230,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     flex: 1,
+    color: '#fff',
   },
   signOutButton: {
     flexDirection: 'row',

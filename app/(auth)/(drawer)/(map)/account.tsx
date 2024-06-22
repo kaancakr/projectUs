@@ -81,7 +81,7 @@ const Page: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#000" }}>
       <View style={styles.container}>
         <View style={styles.profile}>
           <TouchableOpacity
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
   },
   profile: {
     padding: 24,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
